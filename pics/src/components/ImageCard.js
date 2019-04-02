@@ -3,19 +3,27 @@ import React, { Component } from "react";
 class componentName extends Component {
   constructor(props) {
     super(props);
-    this.imageRef = React.createRef(); /* This line of code craetes a Ref to acces the height of the images */
+    this.imageRef = React.createRef(); /* This line of code craetes a Ref to reach into the DOM to update elemnts  */
+    this.state = {
+      spans: 0
+    };
   }
 
   componentDidMount() {
-    console.log(this.imageRef);
-    console.log(this.imageRef.current.clientHeight);
+    this.imageRef.current.addEventListener("load", this.setSpans);
   }
+
+  setSpans = () => {
+    const height = this.imageRef.current.clientHeight;
+    const spans = Math.ceil(height / 10);
+    this.setState({ spans });
+  };
 
   render() {
     const { description, urls } = this.props.image;
 
     return (
-      <div>
+      <div style={{ gridRowEnd: `span ${this.state.spans}` }}>
         <img ref={this.imageRef} alt={description} src={urls.regular} />
       </div>
     );
