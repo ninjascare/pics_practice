@@ -5,6 +5,12 @@ class componentName extends Component {
     super(props);
     this.imageRef = React.createRef(); /* This line of code craetes a Ref to acces the height of the images */
   }
+
+  componentDidMount() {
+    console.log(this.imageRef);
+    console.log(this.imageRef.current.clientHeight);
+  }
+
   render() {
     const { description, urls } = this.props.image;
 
