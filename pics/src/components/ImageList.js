@@ -4,9 +4,7 @@ const ImageList = props => {
   console.log(props.images);
   const images = props.images.map(image => {
     return (
-      <div key={image.id}>
-        <img src={image.urls.regular} alt="Search_Image" />
-      </div>
+      <img key={image.id} src={image.urls.regular} alt={image.description} />
     );
   });
 
