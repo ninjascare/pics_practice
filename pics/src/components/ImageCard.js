@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class componentName extends Component {
   constructor(props) {
     super(props);
-    this.imageRef = React.createRef(); /* This line of code craetes a Ref to reach into the DOM to update elemnts  */
+    this.imageRef = React.createRef(); /* This line of code creates a Ref to reach into the DOM to update elemnts  */
     this.state = {
       spans: 0
     };
